@@ -6,7 +6,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
 <title>BENYAKROW | PORTFOLIO</title>
     
@@ -19,10 +19,10 @@
 }
 
 body {
-    background: #1a1a1a;
+    background: #222; /* Ajustado a un gris oscuro tipo grafito como en tu imagen */
     color: #fff;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* Evita que la página entera haga scroll hacia los lados */
+    overflow-x: hidden;
     width: 100vw;
 }
 
@@ -63,14 +63,25 @@ body {
     z-index: 1;
 }
 
+/* === ALINEACIÓN DEL TÍTULO Y SUBTÍTULO === */
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 0 40px 20px 40px;
+    padding: 0 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Mantiene la caja a la izquierda */
+}
+
+/* Esta caja envuelve a ambos y fuerza al subtítulo a irse a la derecha */
+.hero-title-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end; 
 }
 
 .hero-title {
-    font-family: 'Anton', sans-serif;
+    font-family: 'Boldonse', sans-serif;
     font-size: clamp(50px, 12vw, 150px);
     line-height: 0.85;
     margin: 0;
@@ -81,10 +92,11 @@ body {
 
 .hero-subtitle {
     font-family: 'Space Mono', monospace;
-    font-size: clamp(10px, 2vw, 16px);
+    font-size: clamp(10px, 1.5vw, 16px);
     margin-top: 10px;
     letter-spacing: 2px;
     color: #ccc;
+    text-align: right;
 }
 
 /* === MARQUEE === */
@@ -111,39 +123,39 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-/* === SECCIONES === */
+/* === SECCIONES Y CABECERAS (Estilo de tu imagen) === */
 .section {
     padding: 80px 0;
-    background: #1f1f1f;
+    background: #2a2a2a; /* Gris base de la sección */
 }
 
 .section-header {
     position: relative;
-    padding: 0 40px;
-    margin-bottom: 40px;
-    display: inline-block;
+    margin-bottom: 60px;
 }
 
 .section-title {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(40px, 8vw, 100px);
+    font-family: 'Boldonse', sans-serif;
+    font-size: clamp(40px, 8vw, 120px);
     margin: 0;
     text-transform: uppercase;
     color: #fff;
+    padding: 0 40px;
     position: relative;
     z-index: 2;
-    mix-blend-mode: difference; /* Efecto de recorte con el bloque blanco */
+    /* La sombra oscura dura que crea el efecto de recorte */
+    text-shadow: 5px 5px 0 #2a2a2a, 6px 6px 0 rgba(0,0,0,0.3); 
 }
 
+/* El rectángulo blanco desfasado */
 .section-header::before {
     content: "";
     position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70%;
-    height: 60%;
-    background: #fff;
+    left: 0; /* Pega el rectángulo al borde izquierdo de la pantalla */
+    top: 55%; /* Empieza más abajo de la mitad del texto */
+    width: 85vw; /* Largo del rectángulo */
+    height: 60%; /* Alto del rectángulo (no cubre todo el texto) */
+    background: #f4f4f4; /* Blanco grisáceo */
     z-index: 1;
 }
 
@@ -152,42 +164,39 @@ body {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 20px;
-    
-    /* Estilo de la barra de scroll */
+    padding: 0 40px 20px 40px;
     scrollbar-width: thin;
     scrollbar-color: #555 transparent;
 }
 
 .grid-scroller::-webkit-scrollbar { height: 6px; }
-.grid-scroller::-webkit-scrollbar-track { background: transparent; margin: 0 40px; }
+.grid-scroller::-webkit-scrollbar-track { background: transparent; }
 .grid-scroller::-webkit-scrollbar-thumb { background: #555; border-radius: 10px; }
 
-/* === GRILLA ASIMÉTRICA === */
-.grid {
-    display: grid;
-    grid-template-columns: 55vw 25vw 25vw; /* Fuerza a que sobresalga a la derecha */
+/* === FILAS DE VIDEOS CON ALTO UNIFORME === */
+.video-track {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    padding: 0 40px;
-    width: max-content; /* Permite crecer sin aplastar los videos */
+    width: max-content; /* Permite que el scroller crezca horizontalmente */
 }
 
-/* Fila de abajo: el primer horizontal cubre 1 columna, el segundo cubre 2 columnas */
-.grid .video:nth-child(4) { grid-column: 1 / 2; }
-.grid .video:nth-child(5) { grid-column: 2 / 4; }
-
-@media(max-width: 768px) {
-    .grid { grid-template-columns: 85vw 50vw 50vw; }
+.video-row {
+    display: flex;
+    height: clamp(250px, 40vh, 450px); /* 🔥 AQUÍ ESTÁ LA MAGIA: Todos los videos de la fila tendrán este alto */
+    gap: 20px;
 }
 
-/* === VIDEOS === */
+/* === VIDEOS MANTENIENDO ASPECT RATIO === */
 .video {
     background: #000;
-    width: 100%;
+    height: 100%; /* Toma el 100% del alto de la fila */
     position: relative;
     overflow: hidden;
+    border: 1px solid #111;
 }
 
+/* Al tener un alto fijo arriba, el aspect-ratio calculará el ancho perfecto automáticamente */
 .horizontal { aspect-ratio: 16 / 9; }
 .vertical { aspect-ratio: 9 / 16; }
 
@@ -203,7 +212,7 @@ body {
 /* === TEXTO DESCRIPTIVO === */
 .section-description {
     font-family: 'Space Mono', monospace;
-    font-size: clamp(12px, 1.5vw, 16px);
+    font-size: clamp(12px, 1.5vw, 15px);
     line-height: 1.6;
     color: #ccc;
     margin: 40px 40px 0 40px;
@@ -228,8 +237,10 @@ body {
     </iframe>
 
     <div class="hero-content">
-        <h1 class="hero-title">BENYAKROW</h1>
-        <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
+        <div class="hero-title-box">
+            <h1 class="hero-title">BENYAKROW</h1>
+            <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
+        </div>
     </div>
 </div>
 
@@ -243,22 +254,26 @@ body {
     </div>
 
     <div class="grid-scroller">
-        <div class="grid">
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_1"></iframe>
-            </div>
-            <div class="video vertical">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_VERT_1"></iframe>
-            </div>
-            <div class="video vertical">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_VERT_2"></iframe>
+        <div class="video-track">
+            <div class="video-row">
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_1"></iframe>
+                </div>
+                <div class="video vertical">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_VERT_1"></iframe>
+                </div>
+                <div class="video vertical">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_VERT_2"></iframe>
+                </div>
             </div>
 
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_2"></iframe>
-            </div>
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_3"></iframe>
+            <div class="video-row">
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_2"></iframe>
+                </div>
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_3"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -271,26 +286,18 @@ body {
 
 <section class="section" style="background: #222;">
     <div class="section-header">
-        <h2 class="section-title">BRANDCONTENT</h2>
+        <h2 class="section-title" style="text-shadow: 5px 5px 0 #222, 6px 6px 0 rgba(0,0,0,0.3);">BRANDCONTENT</h2>
     </div>
     
     <div class="grid-scroller">
-        <div class="grid">
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_4"></iframe>
-            </div>
-            <div class="video vertical">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_VERT_3"></iframe>
-            </div>
-            <div class="video vertical">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_VERT_4"></iframe>
-            </div>
-
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_5"></iframe>
-            </div>
-            <div class="video horizontal">
-                <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO_6"></iframe>
+        <div class="video-track">
+            <div class="video-row">
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_4"></iframe>
+                </div>
+                <div class="video vertical">
+                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_VERT_3"></iframe>
+                </div>
             </div>
         </div>
     </div>
