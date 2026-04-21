@@ -36,6 +36,15 @@ body {
     width: 100%;
     height: 100%;
     border: none;
+    pointer-events: none;
+    z-index: 1; /* video abajo */
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 40px;
+    left: 30px;
+    z-index: 2; /* 🔥 texto arriba */
 }
 
 .hero-text h1 {
@@ -44,6 +53,11 @@ body {
     line-height: 0.9;
     margin: 0;
     letter-spacing: -2px;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 }
 
 /* MARQUEE SIMPLE */
@@ -117,15 +131,12 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-
-    <iframe 
-        src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&controls=0&loop=1&playlist=ylhUxH-iGbM&modestbranding=1">
-    </iframe>
+    <iframe ...></iframe>
 
     <div class="hero-text">
         <h1>BENYAKROW</h1>
     </div>
-
+</div>
 </div>
 <!-- MARQUEE -->
 <div class="marquee">
