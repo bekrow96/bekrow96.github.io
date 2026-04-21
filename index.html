@@ -121,42 +121,51 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
-/* === BLOQUE GENERAL === */
+/* === CONTENEDOR === */
 .section {
     padding: 80px 0;
-    background: #2f2f2f;
+    background: #000;
 }
 
-/* === TITULO === */
-.section-title {
-    font-family: 'Boldonse', sans-serif;
-    font-size: clamp(30px, 6vw, 70px);
-    margin-left: 40px;
+.section-header {
     position: relative;
-    display: inline-block;
+    padding: 0 40px;
+    margin-bottom: 40px;
 }
 
-/* barra debajo */
-.section-title::after {
+/* BARRA GRUESA DETRÁS */
+.section-header::before {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -10px;
-    width: 120%;
-    height: 8px;
-    background: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 70%; /* controla largo */
+    height: 40px; /* 🔥 grosor real */
+    
+    background: #ddd;
+    z-index: 1;
 }
 
-/* === GRID === */
+/* TEXTO ENCIMA */
+.section-title {
+    font-family: 'Boldonse', sans-serif;
+    font-size: clamp(40px, 8vw, 120px);
+    position: relative;
+    z-index: 2;
+}
+
+/* === GRID LIMPIO === */
 .grid {
-    margin-top: 60px;
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 20px;
     padding: 0 40px;
 }
 
-/* segunda fila */
+/* segunda fila bien alineada */
 .grid .video:nth-child(4) {
     grid-column: 1 / 2;
 }
@@ -165,13 +174,14 @@ body {
     grid-column: 2 / 4;
 }
 
-/* === VIDEOS (placeholders) === */
+/* === VIDEOS CONTROLADOS (acá estaba tu problema) === */
 .video {
     background: #d9d9d9;
-    position: relative;
+    width: 100%;
+    border: 1px solid #222;
 }
 
-/* proporciones */
+/* proporciones correctas */
 .horizontal {
     aspect-ratio: 16 / 9;
 }
@@ -180,29 +190,26 @@ body {
     aspect-ratio: 9 / 16;
 }
 
-/* texto de prueba (puedes borrar después) */
-.video::after {
-    content: "VIDEO";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    color: #000;
-    font-size: 14px;
+/* evita que crezcan infinito */
+.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
-/* === DESCRIPCIÓN === */
+/* === TEXTO (antes no aparecía por jerarquía/espacio) === */
 .section-description {
     font-family: 'Space Mono', monospace;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.8;
     letter-spacing: 1px;
     color: #ccc;
     margin: 60px 40px 0 40px;
-    max-width: 900px;
+    max-width: 800px;
     text-transform: uppercase;
 }
 
+/* palabras destacadas */
 .section-description strong {
     color: #fff;
     font-weight: 700;
@@ -263,7 +270,10 @@ body {
 <!-- VIDEOS -->
 <section class="section">
 
-    <h2 class="section-title">RAVECULTURE</h2>
+    <div class="section-header">
+        <h2 class="section-title">RAVECULTURE</h2>
+        <div class="section-line"></div>
+    </div>
 
     <div class="grid">
 
