@@ -29,7 +29,7 @@ body {
 /* === HERO === */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 55vh;
     overflow: hidden;
     background: #000;
     display: flex;
@@ -125,15 +125,12 @@ body {
 
 /* === SECCIONES Y CABECERAS === */
 .section {
-    padding: 80px 0;
-    /* Eliminamos el background: #2a2a2a; para que sea transparente */
+    padding: 30px 0; /* 🔥 Antes era 80px. Esto acerca la sección a la huincha */
 }
-
 .section-header {
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 30px; /* 🔥 Antes era 60px. Esto acerca el título a los videos */
 }
-
 .section-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900; /* 🔥 Mismo estilo pesado y ancho */
@@ -215,13 +212,12 @@ body {
 .section-description {
     font-family: 'Space Mono', monospace;
     font-size: clamp(12px, 1.5vw, 15px);
-    line-height: 1.6;
+    line-height: 0.6;
     color: #ccc;
-    margin: 40px 40px 0 40px;
+    margin: 20px 20px 0 40px; /* 🔥 Reducido de 40px a 20px en la parte superior */
     max-width: 900px;
     text-transform: uppercase;
 }
-
 .section-description strong {
     color: #fff;
     font-weight: 700;
