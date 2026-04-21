@@ -6,7 +6,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
 <title>BENYAKROW | PORTFOLIO</title>
     
@@ -19,7 +19,7 @@
 }
 
 body {
-    background: #222; /* Ajustado a un gris oscuro tipo grafito como en tu imagen */
+    background: #222; 
     color: #fff;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
@@ -70,10 +70,9 @@ body {
     padding: 0 40px 40px 40px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Mantiene la caja a la izquierda */
+    align-items: flex-start; 
 }
 
-/* Esta caja envuelve a ambos y fuerza al subtítulo a irse a la derecha */
 .hero-title-box {
     display: inline-flex;
     flex-direction: column;
@@ -81,11 +80,12 @@ body {
 }
 
 .hero-title {
-    font-family: 'Boldonse', sans-serif;
+    font-family: "Host Grotesk", sans-serif;
+    font-weight: 900; /* Fuerza la tipografía a ser extra gruesa */
     font-size: clamp(50px, 12vw, 150px);
     line-height: 0.85;
     margin: 0;
-    letter-spacing: -7px;
+    letter-spacing: -9px; /* Tu ajuste de tensión */
     text-transform: uppercase;
     color: #fff;
 }
@@ -123,10 +123,10 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-/* === SECCIONES Y CABECERAS (Estilo de tu imagen) === */
+/* === SECCIONES Y CABECERAS === */
 .section {
     padding: 80px 0;
-    background: #2a2a2a; /* Gris base de la sección */
+    background: #2a2a2a; 
 }
 
 .section-header {
@@ -135,28 +135,28 @@ body {
 }
 
 .section-title {
-    font-family: 'Boldonse', sans-serif;
+    font-family: "Host Grotesk", sans-serif;
+    font-weight: 900; /* Fuerza la tipografía a ser extra gruesa */
     font-size: clamp(40px, 8vw, 120px);
     margin: 0;
     text-transform: uppercase;
     color: #fff;
-    padding: 0 26px;
+    padding: 0 26px; /* Tu ajuste de padding */
     position: relative;
     z-index: 2;
-    letter-spacing: -7px;
-    /* La sombra oscura dura que crea el efecto de recorte */
+    letter-spacing: -7px; /* Tu ajuste de tensión */
     text-shadow: 5px 5px 0 #2a2a2a, 6px 6px 0 rgba(0,0,0,0.3); 
 }
 
-/* El rectángulo blanco desfasado */
+/* El rectángulo blanco desfasado (Tus medidas exactas) */
 .section-header::before {
     content: "";
     position: absolute;
-    left: 0; /* Pega el rectángulo al borde izquierdo de la pantalla */
-    top: 45%; /* Empieza más abajo de la mitad del texto */
-    width: 55vw; /* Largo del rectángulo */
-    height: 50%; /* Alto del rectángulo (no cubre todo el texto) */
-    background: #f6f6f6; /* Blanco grisáceo */
+    left: 0; 
+    top: 45%; 
+    width: 55vw; 
+    height: 50%; 
+    background: #f6f6f6; 
     z-index: 1;
 }
 
@@ -178,26 +178,25 @@ body {
 .video-track {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: max-content; /* Permite que el scroller crezca horizontalmente */
+    gap: 10px;
+    width: max-content; 
 }
 
 .video-row {
     display: flex;
-    height: clamp(720px, 80vh, 850px); /* 🔥 AQUÍ ESTÁ LA MAGIA: Todos los videos de la fila tendrán este alto */
-    gap: 20px;
+    height: clamp(620px, 75vh, 750px); /* Tu medida inmersiva */
+    gap: 15px;
 }
 
 /* === VIDEOS MANTENIENDO ASPECT RATIO === */
 .video {
     background: #000;
-    height: 100%; /* Toma el 100% del alto de la fila */
+    height: 100%; 
     position: relative;
     overflow: hidden;
     border: 0px solid #111;
 }
 
-/* Al tener un alto fijo arriba, el aspect-ratio calculará el ancho perfecto automáticamente */
 .horizontal { aspect-ratio: 16 / 9; }
 .vertical { aspect-ratio: 9 / 16; }
 
