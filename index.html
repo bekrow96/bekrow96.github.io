@@ -81,13 +81,15 @@ body {
 
 .hero-title {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 900; /* 🔥 El bloque cuadrado y sólido */
-    font-size: clamp(40px, 11vw, 130px); /* Ajustado ligeramente por lo ancha que es */
+    font-weight: 900;
+    font-size: clamp(40px, 11vw, 130px);
     line-height: 0.85;
     margin: 0;
-    letter-spacing: -8px; /* Tensión visual limpia sin deformar */
+    letter-spacing: -5px;
     text-transform: uppercase;
     color: #fff;
+    /* 🔥 AQUÍ ESTÁ LA MAGIA: El texto se invierte según los colores del video */
+    mix-blend-mode: difference; 
 }
 
 .hero-subtitle {
