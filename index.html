@@ -268,7 +268,48 @@ body {
         font-size: 13px;
     }
 }
-}    
+}  
+    /* === FOOTER / CONTACTO === */
+.footer {
+    padding: 60px 40px 80px 40px;
+    background: #000;
+    border-top: 1px solid #333; /* Una línea sutil para separar el final del landing */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: clamp(30px, 6vw, 80px);
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-link {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    width: max-content;
+}
+
+.footer-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
 </style>
 </head>
 
@@ -328,33 +369,19 @@ body {
 
     <p class="section-description">
         La música pasa de ser <strong>sonido</strong> y se vuelve parte del cuerpo.<br>
-        Registro la <strong>energía</strong> real de la pista: público, artista y <strong>momento</strong> en su punto más alto.
+        Te muestro la <strong>energía</strong> real de la pista: el público, los artistas y los <strong>momentos</strong> en su punto más alto.
     </p>
 </section>
-
-<section class="section">
-    <div class="section-header">
-        <h2 class="section-title" style="text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3);">BRANDCONTENT</h2>
-    </div>
     
-    <div class="grid-scroller">
-        <div class="video-track">
-            <div class="video-row">
-                <div class="video horizontal">
-                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_4"></iframe>
-                </div>
-                <div class="video vertical">
-                    <iframe src="https://www.youtube.com/embed/ID_VIDEO_VERT_3"></iframe>
-                </div>
-            </div>
-        </div>
+<footer class="footer">
+    <h2 class="footer-title">CONTACTO</h2>
+    <div class="footer-links">
+        <a href="mailto:benyacrow@gmail.com" class="footer-link">MAIL /// BENYACROW@GMAIL.COM</a>
+        <a href="https://instagram.com/benyakrow" target="_blank" class="footer-link">IG /// @BENYAKROW</a>
     </div>
+</footer>
 
-    <p class="section-description">
-        Estrategia y narrativa para conectar marcas con su audiencia.<br>
-        <strong>Contenido nativo</strong> diseñado para el algoritmo y el <strong>impacto visual</strong>.
-    </p>
-</section>
-
+</body>
+</html>
 </body>
 </html>
