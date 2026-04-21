@@ -165,15 +165,17 @@ body {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 40px 20px 40px;
+    /* 🔥 Cambiamos el último 40px por un 0 (Arriba, Derecha, Abajo, Izquierda) */
+    padding: 0 40px 20px 0; 
     scrollbar-width: thin;
     scrollbar-color: #555 transparent;
 }
 
-.grid-scroller::-webkit-scrollbar { height: 6px; }
-.grid-scroller::-webkit-scrollbar-track { background: transparent; }
-.grid-scroller::-webkit-scrollbar-thumb { background: #555; border-radius: 0px; }
-
+/* Alineamos la pista de la barra de scroll para que también empiece en cero a la izquierda */
+.grid-scroller::-webkit-scrollbar-track { 
+    background: transparent; 
+    margin: 0 40px 0 0; /* 🔥 Arriba, Derecha, Abajo, Izquierda */
+}
 /* === FILAS DE VIDEOS === */
 .video-track {
     display: flex;
@@ -184,8 +186,8 @@ body {
 
 .video-row {
     display: flex;
-    height: clamp(620px, 75vh, 750px); 
-    gap: 10px;
+    height: clamp(450px, 65vh, 680px); 
+    gap: 20px;
 }
 
 /* === VIDEOS MANTENIENDO ASPECT RATIO === */
