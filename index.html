@@ -6,8 +6,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
-
+    
 <title>BENYAKROW</title>
+    
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -119,7 +121,92 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
+/* === BLOQUE GENERAL === */
+.section {
+    padding: 80px 0;
+    background: #2f2f2f;
+}
 
+/* === TITULO === */
+.section-title {
+    font-family: 'Boldonse', sans-serif;
+    font-size: clamp(30px, 6vw, 70px);
+    margin-left: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* barra debajo */
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 120%;
+    height: 8px;
+    background: #fff;
+}
+
+/* === GRID === */
+.grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+/* segunda fila */
+.grid .video:nth-child(4) {
+    grid-column: 1 / 2;
+}
+
+.grid .video:nth-child(5) {
+    grid-column: 2 / 4;
+}
+
+/* === VIDEOS (placeholders) === */
+.video {
+    background: #d9d9d9;
+    position: relative;
+}
+
+/* proporciones */
+.horizontal {
+    aspect-ratio: 16 / 9;
+}
+
+.vertical {
+    aspect-ratio: 9 / 16;
+}
+
+/* texto de prueba (puedes borrar después) */
+.video::after {
+    content: "VIDEO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: #000;
+    font-size: 14px;
+}
+
+/* === DESCRIPCIÓN === */
+.section-description {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    color: #ccc;
+    margin: 60px 40px 0 40px;
+    max-width: 900px;
+    text-transform: uppercase;
+}
+
+.section-description strong {
+    color: #fff;
+    font-weight: 700;
+}
 /* VIDEO */
 .video {
     border-top: 1px solid #222;
@@ -172,7 +259,29 @@ body {
     </p>
 </div>
 
+    
 <!-- VIDEOS -->
+<section class="section">
+
+    <h2 class="section-title">RAVECULTURE</h2>
+
+    <div class="grid">
+
+        <div class="video horizontal"></div>
+        <div class="video vertical"></div>
+        <div class="video vertical"></div>
+
+        <div class="video horizontal"></div>
+        <div class="video horizontal"></div>
+
+    </div>
+
+    <p class="section-description">
+        La música pasa de ser <strong>sonido</strong> y se vuelve parte del cuerpo.<br><br>
+        Registro la <strong>energía</strong> real de la pista: público, artista y <strong>momento</strong> en su punto más alto.
+    </p>
+
+</section>
 <div class="grid">
 
     <div class="video">
