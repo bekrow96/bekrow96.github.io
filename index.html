@@ -23,41 +23,59 @@ body {
 }
 
 /* HERO (negro limpio por ahora) */
+/* 1. EL CONTENEDOR (Nivel Base) */
 .hero {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    background: #000;
 }
 
+/* 2. EL VIDEO (Nivel 0 - Al fondo y bloqueado) */
 .hero iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; /* 16:9 ratio */
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%) scale(1.05); /* Escala para ocultar bordes de YouTube */
+    border: none;
+    pointer-events: none; /* 🔥 Esto bloquea que el usuario pueda pausarlo o hacer clic */
+    z-index: 0;
+}
+
+/* 3. EL FILTRO OSCURO (Nivel 1 - Entre el video y el texto) */
+.hero::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    background: rgba(0, 0, 0, 0.6); /* 🔥 Cambia el 0.6 para hacerlo más claro u oscuro */
     pointer-events: none;
-    z-index: 1; /* video abajo */
+    z-index: 1;
 }
 
+/* 4. EL TEXTO (Nivel 2 - Hasta arriba) */
 .hero-text {
     position: absolute;
     bottom: 40px;
     left: 30px;
-    z-index: 2; /* 🔥 texto arriba */
+    z-index: 2; /* 🔥 Garantiza que el texto esté sobre el video y el filtro */
 }
 
 .hero-text h1 {
-    font-family: 'Boldonse', sans-serif;
-    font-size: clamp(40px, 10vw, 120px);
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(50px, 12vw, 150px);
     line-height: 0.9;
     margin: 0;
     letter-spacing: -2px;
-}
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0px 4px 20px rgba(0,0,0,0.8); /* Sombra extra para que no se pierda */
 }
 
 /* MARQUEE SIMPLE */
@@ -131,12 +149,15 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-    <iframe ...></iframe>
+    <iframe 
+        src="https://www.youtube.com/embed/TU_ID?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=TU_ID" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+    </iframe>
 
     <div class="hero-text">
         <h1>BENYAKROW</h1>
     </div>
-</div>
 </div>
 <!-- MARQUEE -->
 <div class="marquee">
