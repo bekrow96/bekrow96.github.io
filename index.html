@@ -85,7 +85,7 @@ body {
     font-size: clamp(40px, 11vw, 130px); /* Ajustado ligeramente por lo ancha que es */
     line-height: 0.85;
     margin: 0;
-    letter-spacing: -5px; /* Tensión visual limpia sin deformar */
+    letter-spacing: -8px; /* Tensión visual limpia sin deformar */
     text-transform: uppercase;
     color: #fff;
 }
@@ -115,7 +115,7 @@ body {
 .marquee span {
     display: inline-block;
     padding-left: 100%;
-    animation: scroll 20s linear infinite;
+    animation: scroll 30s linear infinite;
 }
 
 @keyframes scroll {
@@ -138,13 +138,13 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900; /* 🔥 Mismo estilo pesado y ancho */
     font-size: clamp(16px, 3.2vw, 48px); /* 40% del tamaño */
-    margin: 0;
+    margin: 20;
     text-transform: uppercase;
-    color: #fff;
+    color: #f6f6f6;
     padding: 0 26px;
     position: relative;
     z-index: 2;
-    letter-spacing: -2px; 
+    letter-spacing: -5px; 
     text-shadow: 4px 4px 0 #2a2a2a, 5px 5px 0 rgba(0,0,0,0.3); 
 }
 
@@ -152,7 +152,7 @@ body {
 .section-header::before {
     content: "";
     position: absolute;
-    left: 0; 
+    left: -10; 
     top: 45%; 
     width: 55vw; 
     height: 50%; 
@@ -184,8 +184,8 @@ body {
 
 .video-row {
     display: flex;
-    height: clamp(720px, 80vh, 850px); 
-    gap: 20px;
+    height: clamp(620px, 75vh, 750px); 
+    gap: 10px;
 }
 
 /* === VIDEOS MANTENIENDO ASPECT RATIO === */
@@ -203,7 +203,7 @@ body {
 .video iframe {
     position: absolute;
     top: 0;
-    left: 0;
+    left:-2;
     width: 100%;
     height: 100%;
     border: none;
