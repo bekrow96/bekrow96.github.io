@@ -229,39 +229,47 @@ body {
 /* === ADAPTACIÓN MÓVIL (Smartphones) === */
 @media (max-width: 768px) {
     
-    /* 1. Rescatamos el tamaño de los títulos para que sigan siendo agresivos */
+   /* === ADAPTACIÓN MÓVIL (Smartphones) === */
+@media (max-width: 768px) {
+    
+    /* Reducimos el padding lateral del Hero para ganar más espacio para el título */
+    .hero-content {
+        padding: 0 15px 30px 15px;
+    }
+
+    /* 1. BENYAKROW (9 letras): Usamos 11vw para que quepa exacto de lado a lado */
+    .hero-title {
+        font-size: clamp(30px, 11vw, 80px);
+        letter-spacing: -3px; /* Reducimos la asfixia para que se entienda al ser más chico */
+    }
+
+    /* 2. BRANDCONTENT y RAVECULTURE (Hasta 12 letras): Usamos 8.5vw para forzar que entren en 1 sola línea */
     .section-title {
-        font-size: clamp(45px, 12vw, 60px); /* 🔥 Mínimo de 45px para que jamás se vea enano */
-        letter-spacing: -3px; /* Relajamos un poco la tensión para legibilidad móvil */
-        padding: 0 15px; /* Menos margen lateral */
+        font-size: clamp(24px, 8.5vw, 50px); 
+        letter-spacing: -2px; 
+        padding: 0 15px; 
         line-height: 0.9;
     }
 
-    /* 2. Reacomodamos el bloque atravesado a la nueva proporción del texto */
+    /* 3. Reacomodamos el bloque atravesado a la nueva proporción del texto */
     .section-header::before {
         top: 40%;
-        width: 85vw; /* Más largo para que alcance a cruzar toda la palabra en vertical */
+        width: 85vw; 
         height: 50%;
     }
 
-    /* 3. 🔥 EL FIX DE LOS VIDEOS: Altura controlada para móvil */
+    /* 4. Altura controlada de videos para móvil */
     .video-row {
-        /* Al bajar el alto a 250px, los anchos se calculan solos y entran perfecto en la pantalla del celular, permitiendo el scroll horizontal (swipe) de forma natural */
         height: 250px; 
-        gap: 15px; /* Separación un poco menor entre videos */
+        gap: 15px; 
     }
 
-    /* 4. Ajuste extra al título del Hero para que no desborde la pantalla */
-    .hero-title {
-        font-size: clamp(60px, 16vw, 100px);
-        letter-spacing: -4px;
-    }
-
-    /* Ajustamos los márgenes de los textos descriptivos para que no choquen con los bordes */
+    /* 5. Textos descriptivos */
     .section-description {
         margin: 30px 15px 0 15px;
         font-size: 13px;
     }
+}
 }    
 </style>
 </head>
