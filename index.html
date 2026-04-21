@@ -6,7 +6,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
 <title>BENYAKROW | PORTFOLIO</title>
     
@@ -80,12 +80,12 @@ body {
 }
 
 .hero-title {
-    font-family: "Host Grotesk", sans-serif;
-    font-weight: 900; /* Fuerza la tipografía a ser extra gruesa */
-    font-size: clamp(50px, 12vw, 150px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; /* 🔥 El bloque cuadrado y sólido */
+    font-size: clamp(40px, 11vw, 130px); /* Ajustado ligeramente por lo ancha que es */
     line-height: 0.85;
     margin: 0;
-    letter-spacing: -9px; /* Tu ajuste de tensión */
+    letter-spacing: -5px; /* Tensión visual limpia sin deformar */
     text-transform: uppercase;
     color: #fff;
 }
@@ -93,7 +93,7 @@ body {
 .hero-subtitle {
     font-family: 'Space Mono', monospace;
     font-size: clamp(10px, 1.5vw, 16px);
-    margin-top: 10px;
+    margin-top: 15px;
     letter-spacing: 2px;
     color: #ccc;
     text-align: right;
@@ -135,20 +135,20 @@ body {
 }
 
 .section-title {
-    font-family: "Host Grotesk", sans-serif;
-    font-weight: 900; /* Fuerza la tipografía a ser extra gruesa */
-    font-size: clamp(40px, 8vw, 120px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; /* 🔥 Mismo estilo pesado y ancho */
+    font-size: clamp(16px, 3.2vw, 48px); /* 40% del tamaño */
     margin: 0;
     text-transform: uppercase;
     color: #fff;
-    padding: 0 26px; /* Tu ajuste de padding */
+    padding: 0 26px;
     position: relative;
     z-index: 2;
-    letter-spacing: -7px; /* Tu ajuste de tensión */
-    text-shadow: 5px 5px 0 #2a2a2a, 6px 6px 0 rgba(0,0,0,0.3); 
+    letter-spacing: -2px; 
+    text-shadow: 4px 4px 0 #2a2a2a, 5px 5px 0 rgba(0,0,0,0.3); 
 }
 
-/* El rectángulo blanco desfasado (Tus medidas exactas) */
+/* El rectángulo blanco desfasado */
 .section-header::before {
     content: "";
     position: absolute;
@@ -174,18 +174,18 @@ body {
 .grid-scroller::-webkit-scrollbar-track { background: transparent; }
 .grid-scroller::-webkit-scrollbar-thumb { background: #555; border-radius: 0px; }
 
-/* === FILAS DE VIDEOS CON ALTO UNIFORME === */
+/* === FILAS DE VIDEOS === */
 .video-track {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     width: max-content; 
 }
 
 .video-row {
     display: flex;
-    height: clamp(620px, 75vh, 750px); /* Tu medida inmersiva */
-    gap: 15px;
+    height: clamp(720px, 80vh, 850px); 
+    gap: 20px;
 }
 
 /* === VIDEOS MANTENIENDO ASPECT RATIO === */
@@ -286,7 +286,7 @@ body {
 
 <section class="section" style="background: #222;">
     <div class="section-header">
-        <h2 class="section-title" style="text-shadow: 5px 5px 0 #222, 6px 6px 0 rgba(0,0,0,0.3);">BRANDCONTENT</h2>
+        <h2 class="section-title" style="text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3);">BRANDCONTENT</h2>
     </div>
     
     <div class="grid-scroller">
