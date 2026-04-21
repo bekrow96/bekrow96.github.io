@@ -85,7 +85,7 @@ body {
     font-size: clamp(50px, 12vw, 150px);
     line-height: 0.85;
     margin: 0;
-    letter-spacing: -3px;
+    letter-spacing: -7px;
     text-transform: uppercase;
     color: #fff;
 }
@@ -140,9 +140,10 @@ body {
     margin: 0;
     text-transform: uppercase;
     color: #fff;
-    padding: 0 40px;
+    padding: 0 26px;
     position: relative;
     z-index: 2;
+    letter-spacing: -7px;
     /* La sombra oscura dura que crea el efecto de recorte */
     text-shadow: 5px 5px 0 #2a2a2a, 6px 6px 0 rgba(0,0,0,0.3); 
 }
@@ -152,10 +153,10 @@ body {
     content: "";
     position: absolute;
     left: 0; /* Pega el rectángulo al borde izquierdo de la pantalla */
-    top: 55%; /* Empieza más abajo de la mitad del texto */
-    width: 85vw; /* Largo del rectángulo */
-    height: 60%; /* Alto del rectángulo (no cubre todo el texto) */
-    background: #f4f4f4; /* Blanco grisáceo */
+    top: 45%; /* Empieza más abajo de la mitad del texto */
+    width: 55vw; /* Largo del rectángulo */
+    height: 50%; /* Alto del rectángulo (no cubre todo el texto) */
+    background: #f6f6f6; /* Blanco grisáceo */
     z-index: 1;
 }
 
@@ -171,7 +172,7 @@ body {
 
 .grid-scroller::-webkit-scrollbar { height: 6px; }
 .grid-scroller::-webkit-scrollbar-track { background: transparent; }
-.grid-scroller::-webkit-scrollbar-thumb { background: #555; border-radius: 10px; }
+.grid-scroller::-webkit-scrollbar-thumb { background: #555; border-radius: 0px; }
 
 /* === FILAS DE VIDEOS CON ALTO UNIFORME === */
 .video-track {
@@ -183,7 +184,7 @@ body {
 
 .video-row {
     display: flex;
-    height: clamp(250px, 40vh, 450px); /* 🔥 AQUÍ ESTÁ LA MAGIA: Todos los videos de la fila tendrán este alto */
+    height: clamp(720px, 80vh, 850px); /* 🔥 AQUÍ ESTÁ LA MAGIA: Todos los videos de la fila tendrán este alto */
     gap: 20px;
 }
 
@@ -193,7 +194,7 @@ body {
     height: 100%; /* Toma el 100% del alto de la fila */
     position: relative;
     overflow: hidden;
-    border: 1px solid #111;
+    border: 0px solid #111;
 }
 
 /* Al tener un alto fijo arriba, el aspect-ratio calculará el ancho perfecto automáticamente */
