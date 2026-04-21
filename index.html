@@ -138,13 +138,13 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900; /* 🔥 Mismo estilo pesado y ancho */
     font-size: clamp(16px, 3.2vw, 48px); /* 40% del tamaño */
-    margin: 20;
+    margin: 30;
     text-transform: uppercase;
     color: #f6f6f6;
     padding: 0 50px;
     position: relative;
     z-index: 2;
-    letter-spacing: -5px; 
+    letter-spacing: -4px; 
     text-shadow: 4px 4px 0 #2a2a2a, 5px 5px 0 rgba(0,0,0,0.3); 
 }
 
@@ -226,6 +226,43 @@ body {
     color: #fff;
     font-weight: 700;
 }
+/* === ADAPTACIÓN MÓVIL (Smartphones) === */
+@media (max-width: 768px) {
+    
+    /* 1. Rescatamos el tamaño de los títulos para que sigan siendo agresivos */
+    .section-title {
+        font-size: clamp(45px, 12vw, 60px); /* 🔥 Mínimo de 45px para que jamás se vea enano */
+        letter-spacing: -3px; /* Relajamos un poco la tensión para legibilidad móvil */
+        padding: 0 15px; /* Menos margen lateral */
+        line-height: 0.9;
+    }
+
+    /* 2. Reacomodamos el bloque atravesado a la nueva proporción del texto */
+    .section-header::before {
+        top: 40%;
+        width: 85vw; /* Más largo para que alcance a cruzar toda la palabra en vertical */
+        height: 50%;
+    }
+
+    /* 3. 🔥 EL FIX DE LOS VIDEOS: Altura controlada para móvil */
+    .video-row {
+        /* Al bajar el alto a 250px, los anchos se calculan solos y entran perfecto en la pantalla del celular, permitiendo el scroll horizontal (swipe) de forma natural */
+        height: 250px; 
+        gap: 15px; /* Separación un poco menor entre videos */
+    }
+
+    /* 4. Ajuste extra al título del Hero para que no desborde la pantalla */
+    .hero-title {
+        font-size: clamp(60px, 16vw, 100px);
+        letter-spacing: -4px;
+    }
+
+    /* Ajustamos los márgenes de los textos descriptivos para que no choquen con los bordes */
+    .section-description {
+        margin: 30px 15px 0 15px;
+        font-size: 13px;
+    }
+}    
 </style>
 </head>
 
