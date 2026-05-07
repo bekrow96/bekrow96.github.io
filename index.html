@@ -25,7 +25,7 @@
         /* === HERO (Pantalla Principal) === */
         .hero {
             position: relative;
-            height: 55vh; /* Hero a mitad de pantalla */
+            height: 55vh;
             overflow: hidden;
             background: #000;
             display: flex;
@@ -33,17 +33,16 @@
             justify-content: flex-end;
         }
 
-        /* Video YOUTUBE de fondo en el Hero */
         .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 150vw; /* Estirado para matar bordes negros de YT */
+            width: 150vw;
             height: 150vh;
             transform: translate(-50%, -50%);
             z-index: 0;
             opacity: 0.8;
-            pointer-events: none; /* Bloquea clicks para que no se pause */
+            pointer-events: none;
         }
 
         .hero-video iframe {
@@ -52,7 +51,6 @@
             border: none;
         }
 
-        /* Filtro oscuro sobre el video */
         .hero::after {
             content: "";
             position: absolute;
@@ -65,7 +63,6 @@
             z-index: 1;
         }
 
-        /* Contenedor del Título (Con efecto negativo) */
         .hero-content {
             position: relative;
             z-index: 2;
@@ -73,7 +70,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            mix-blend-mode: difference; /* Efecto negativo contra el video */
+            mix-blend-mode: difference;
         }
 
         .hero-title {
@@ -117,10 +114,10 @@
         }
 
         .marquee-logo {
-            height: 35px; /* Tamaño ajustado para presencia */
+            height: 38px;
             vertical-align: middle;
             margin: 0 20px;
-            filter: grayscale(100%) brightness(0); /* Vuelve los logos negros */
+            filter: grayscale(100%) brightness(0);
         }
 
         @keyframes scroll-marquee {
@@ -128,7 +125,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* === SECCIONES Y CABECERAS === */
+        /* === SECCIONES Y CABECERAS (RESTAURADO A VERSIÓN APROBADA) === */
         .section {
             padding: 30px 0;
         }
@@ -139,7 +136,6 @@
             display: inline-block;
         }
 
-        /* Título Brutalista */
         .section-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -154,7 +150,6 @@
             z-index: 2;
         }
 
-        /* Bloque blanco que atraviesa el texto */
         .section-header::before {
             content: "";
             position: absolute;
@@ -167,7 +162,7 @@
             mix-blend-mode: difference;
         }
 
-        /* === SCROLL HORIZONTAL DE VIDEOS === */
+        /* === GRID DE VIDEOS === */
         .grid-scroller {
             width: 100%;
             overflow-x: auto;
@@ -177,20 +172,6 @@
             scrollbar-color: #555 transparent;
         }
 
-        /* Barra de scroll */
-        .grid-scroller::-webkit-scrollbar {
-            height: 8px;
-        }
-        .grid-scroller::-webkit-scrollbar-track {
-            background: transparent;
-            margin: 0;
-        }
-        .grid-scroller::-webkit-scrollbar-thumb {
-            background-color: #555;
-            border-radius: 4px;
-        }
-
-        /* Filas y Columnas de Videos */
         .video-track {
             display: flex;
             flex-direction: column;
@@ -204,7 +185,6 @@
             gap: 20px;
         }
 
-        /* Proporciones de videos */
         .video {
             height: 100%;
             background: #111;
@@ -222,7 +202,6 @@
             border: none;
         }
 
-        /* === TEXTOS DESCRIPTIVOS === */
         .section-description {
             font-family: 'Space Mono', monospace;
             font-size: clamp(12px, 1.5vw, 15px);
@@ -233,7 +212,7 @@
             text-transform: uppercase;
         }
 
-        /* === FOOTER / CONTACTO === */
+        /* === FOOTER === */
         .footer {
             padding: 60px 40px 80px 40px;
             background: #000;
@@ -266,24 +245,17 @@
             color: #ccc;
             text-decoration: none;
             text-transform: uppercase;
-            transition: color 0.3s ease;
             width: max-content;
         }
 
-        .footer-link:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        /* === ADAPTACIÓN MÓVIL (Smartphones) === */
+        /* === ADAPTACIÓN MÓVIL (SIN CAMBIOS EXTRA) === */
         @media (max-width: 768px) {
             .hero-content { padding: 0 15px 30px 15px; }
-            .hero-title { font-size: clamp(30px, 11vw, 80px); letter-spacing: -3px; }
-            .section-title { font-size: clamp(24px, 8.5vw, 50px); letter-spacing: -2px; padding: 0 15px; line-height: 0.9; }
-            .section-header::before { top: 40%; width: 85vw; height: 50%; }
-            .video-row { height: 250px; gap: 15px; } 
-            .section-description { margin: 30px 15px 0 15px; font-size: 13px; }
-            .footer { padding: 40px 20px 60px 20px; }
+            .hero-title { font-size: clamp(30px, 11vw, 80px); }
+            .section-title { font-size: clamp(24px, 8.5vw, 50px); padding: 0 15px; }
+            .section-header::before { top: 40%; width: 100vw; height: 30%; }
+            .video-row { height: 250px; }
+            .marquee-logo { height: 25px; }
         }
     </style>
 </head>
@@ -291,13 +263,8 @@
 
 <header class="hero">
     <div class="hero-video">
-        <iframe 
-            src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=ylhUxH-iGbM" 
-            allow="autoplay; encrypted-media" 
-            frameborder="0">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=ylhUxH-iGbM" allow="autoplay; encrypted-media"></iframe>
     </div>
-
     <div class="hero-content">
         <h1 class="hero-title">BENYAKROW</h1>
         <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
@@ -307,12 +274,11 @@
 <div class="marquee">
     <span>
         STG - CHILE /// RAVE CULTURE /// BRANDCONTENT /// 
-        CLIENTES: <img src="360globalprod.png" alt="360" class="marquee-logo"> /// 
-        <img src="verruckt.png" alt="Verruckt" class="marquee-logo"> /// 
-        
+        CLIENTES: <img src="360globalprod.png" class="marquee-logo"> /// 
+        <img src="verruckt.png" class="marquee-logo"> /// 
         STG - CHILE /// RAVE CULTURE /// BRANDCONTENT /// 
-        CLIENTES: <img src="360globalprod.png" alt="360" class="marquee-logo"> /// 
-        <img src="verruckt.png" alt="Verruckt" class="marquee-logo"> ///
+        CLIENTES: <img src="360globalprod.png" class="marquee-logo"> /// 
+        <img src="verruckt.png" class="marquee-logo"> ///
     </span>
 </div>
 
@@ -324,35 +290,18 @@
     <div class="grid-scroller">
         <div class="video-track">
             <div class="video-row">
-                <div class="video horizontal">
-                    <iframe src="https://www.youtube.com/embed/sxm0QOlixdI" allowfullscreen></iframe>
-                </div>
-                <div class="video vertical">
-                    <iframe src="https://www.youtube.com/embed/sHyBrlnHK9I" allowfullscreen></iframe>
-                </div>
-                <div class="video horizontal">
-                    <iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8" allowfullscreen></iframe>
-                </div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/sxm0QOlixdI" allowfullscreen></iframe></div>
+                <div class="video vertical"><iframe src="https://www.youtube.com/embed/sHyBrlnHK9I" allowfullscreen></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8" allowfullscreen></iframe></div>
             </div>
-
             <div class="video-row">
-                <div class="video vertical">
-                    <iframe src="https://www.youtube.com/embed/YuD6OQaPa8A" allowfullscreen></iframe>
-                </div>
-                <div class="video horizontal">
-                    <iframe src="https://www.youtube.com/embed/iU0mgnyGALI" allowfullscreen></iframe>
-                </div>
-                <div class="video horizontal">
-                    <iframe src="https://www.youtube.com/embed/bhlOODsSCRU" allowfullscreen></iframe>
-                </div>
+                <div class="video vertical"><iframe src="https://www.youtube.com/embed/YuD6OQaPa8A" allowfullscreen></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/iU0mgnyGALI" allowfullscreen></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/bhlOODsSCRU" allowfullscreen></iframe></div>
             </div>
         </div>
     </div>
-
-    <p class="section-description">
-        Registro visual de la escena electrónica underground.<br>
-        <strong>Energía en crudo</strong>, luces y movimiento perpetuo.
-    </p>
+    <p class="section-description">Registro visual de la escena electrónica underground. <strong>Energía en crudo</strong>.</p>
 </section>
 
 <footer class="footer">
