@@ -110,12 +110,12 @@
             animation: scroll-marquee 20s linear infinite;
         }
 
-        .marquee-logo {
-            height: 16px;
-            vertical-align: middle;
-            margin: 0 15px;
-            filter: grayscale(100%) brightness(0); /* Vuelve los logos negros */
-        }
+       .marquee-logo {
+    height: 35px; /* 🔥 Subimos el tamaño al doble (antes era 16px) */
+    vertical-align: middle;
+    margin: 0 20px; /* Le di un pelín más de aire a los lados para que respiren */
+    filter: grayscale(100%) brightness(0);
+}
 
         @keyframes scroll-marquee {
             0% { transform: translateX(0%); }
