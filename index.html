@@ -33,17 +33,23 @@
             justify-content: flex-end;
         }
 
-        /* Video de fondo en el Hero */
+        /* Video YOUTUBE de fondo en el Hero */
         .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+            width: 150vw; /* Estirado para matar bordes negros de YT */
+            height: 150vh;
             transform: translate(-50%, -50%);
             z-index: 0;
             opacity: 0.8;
+            pointer-events: none; /* Bloquea clicks para que no se pause */
+        }
+
+        .hero-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Filtro oscuro sobre el video */
@@ -110,12 +116,12 @@
             animation: scroll-marquee 20s linear infinite;
         }
 
-       .marquee-logo {
-    height: 35px; /* 🔥 Subimos el tamaño al doble (antes era 16px) */
-    vertical-align: middle;
-    margin: 0 20px; /* Le di un pelín más de aire a los lados para que respiren */
-    filter: grayscale(100%) brightness(0);
-}
+        .marquee-logo {
+            height: 35px; /* Tamaño ajustado para presencia */
+            vertical-align: middle;
+            margin: 0 20px;
+            filter: grayscale(100%) brightness(0); /* Vuelve los logos negros */
+        }
 
         @keyframes scroll-marquee {
             0% { transform: translateX(0%); }
@@ -143,7 +149,7 @@
             letter-spacing: -5px;
             padding: 0 40px;
             line-height: 0.8;
-            text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3); /* Sombra color del body */
+            text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3);
             position: relative;
             z-index: 2;
         }
@@ -166,7 +172,7 @@
             width: 100%;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 0 0 20px 0; /* Borde a borde puro */
+            padding: 0 0 20px 0;
             scrollbar-width: thin;
             scrollbar-color: #555 transparent;
         }
@@ -194,7 +200,7 @@
 
         .video-row {
             display: flex;
-            height: clamp(450px, 65vh, 680px); /* 80% aprox de la pantalla */
+            height: clamp(450px, 65vh, 680px);
             gap: 20px;
         }
 
@@ -284,11 +290,17 @@
 <body>
 
 <header class="hero">
-    <video class="hero-video" autoplay loop muted playsinline src="tu-video.mp4"></video>
-    
+    <div class="hero-video">
+        <iframe 
+            src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=ylhUxH-iGbM" 
+            allow="autoplay; encrypted-media" 
+            frameborder="0">
+        </iframe>
+    </div>
+
     <div class="hero-content">
         <h1 class="hero-title">BENYAKROW</h1>
-        <p class="hero-subtitle">FILMMAKER /// CREATIVE DIRECTOR</p>
+        <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
     </div>
 </header>
 
@@ -303,6 +315,7 @@
         <img src="verruckt.png" alt="Verruckt" class="marquee-logo"> ///
     </span>
 </div>
+
 <section class="section">
     <div class="section-header">
         <h2 class="section-title">RAVECULTURE</h2>
