@@ -1,378 +1,348 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENYAKROW /// RAVE & BRAND CONTENT</title>
     
-<title>BENYAKROW | PORTFOLIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-<style>
-/* === BASE === */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        /* === RESET Y VARIABLES === */
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    background: #222; 
-    color: #fff;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    width: 100vw;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+        }
 
-/* === HERO === */
-.hero {
-    position: relative;
-    height: 55vh;
-    overflow: hidden;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
+        /* === HERO (Pantalla Principal) === */
+        .hero {
+            position: relative;
+            height: 55vh; /* Hero a mitad de pantalla */
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
 
-.hero iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.77vh;
-    transform: translate(-50%, -50%) scale(1.05);
-    border: none;
-    pointer-events: none;
-    z-index: 0;
-}
+        /* Video de fondo en el Hero */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0.8;
+        }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.9) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
+        /* Filtro oscuro sobre el video */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
 
-/* === ALINEACIÓN DEL TÍTULO Y SUBTÍTULO === */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 40px 40px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    /* 🔥 PON LA MAGIA AQUÍ */
-    mix-blend-mode: difference;
-}
+        /* Contenedor del Título (Con efecto negativo) */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 40px 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            mix-blend-mode: difference; /* Efecto negativo contra el video */
+        }
 
-.hero-title-box {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end; 
-}
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(40px, 11vw, 130px);
+            line-height: 0.85;
+            margin: 0;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
 
-.hero-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: clamp(40px, 11vw, 130px);
-    line-height: 0.85;
-    margin: 0;
-    letter-spacing: -5px;
-    text-transform: uppercase;
-    color: #fff;
-}
+        .hero-subtitle {
+            font-size: clamp(14px, 2vw, 20px);
+            margin-top: 10px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
 
-.hero-subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(10px, 1.5vw, 16px);
-    margin-top: 15px;
-    letter-spacing: 2px;
-    color: #ccc;
-    text-align: right;
-}
+        /* === HUINCHA / MARQUEE === */
+        .marquee {
+            width: 100%;
+            background: #fff;
+            color: #000;
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+        }
 
-/* === MARQUEE === */
-.marquee {
-    background: #fff;
-    color: #000;
-    padding: 10px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: 'Space Mono', monospace;
-    font-weight: bold;
-    font-size: 14px;
-    border-bottom: 2px solid #000;
-}
+        .marquee span {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 2px;
+            animation: scroll-marquee 20s linear infinite;
+        }
 
-.marquee span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: scroll 30s linear infinite;
-}
+        .marquee-logo {
+            height: 16px;
+            vertical-align: middle;
+            margin: 0 15px;
+            filter: grayscale(100%) brightness(0); /* Vuelve los logos negros */
+        }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
 
-/* === SECCIONES Y CABECERAS === */
-.section {
-    padding: 30px 0; /* 🔥 Antes era 80px. Esto acerca la sección a la huincha */
-}
-.section-header {
-    position: relative;
-    margin-bottom: 30px; /* 🔥 Antes era 60px. Esto acerca el título a los videos */
-}
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900; /* 🔥 Mismo estilo pesado y ancho */
-    font-size: clamp(16px, 3.2vw, 48px); /* 40% del tamaño */
-    margin: 30;
-    text-transform: uppercase;
-    color: #f6f6f6;
-    padding: 0 50px;
-    position: relative;
-    z-index: 2;
-    letter-spacing: -4px; 
-    text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3);
-}
+        /* === SECCIONES Y CABECERAS === */
+        .section {
+            padding: 30px 0;
+        }
 
-/* El rectángulo blanco desfasado */
-.section-header::before {
-    content: "";
-    position: absolute;
-    left: -10; 
-    top: 45%; 
-    width: 25vw; 
-    height: 50%; 
-    background: #f6f6f6; 
-    z-index: 1;
-}
+        .section-header {
+            position: relative;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
 
-/* === CONTENEDOR DEL SCROLL HORIZONTAL === */
-.grid-scroller {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* 🔥 Cambiamos el último 40px por un 0 (Arriba, Derecha, Abajo, Izquierda) */
-    padding: 0 0px 20px 0; 
-    scrollbar-width: thin;
-    scrollbar-color: #555 transparent;
-}
+        /* Título Brutalista */
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(45px, 12vw, 120px);
+            margin: 0;
+            color: #fff;
+            letter-spacing: -5px;
+            padding: 0 40px;
+            line-height: 0.8;
+            text-shadow: 4px 4px 0 #222, 5px 5px 0 rgba(0,0,0,0.3); /* Sombra color del body */
+            position: relative;
+            z-index: 2;
+        }
 
-/* Alineamos la pista de la barra de scroll para que también empiece en cero a la izquierda */
-.grid-scroller::-webkit-scrollbar-track { 
-    background: transparent; 
-    margin: 0 40px 0 0; /* 🔥 Arriba, Derecha, Abajo, Izquierda */
-}
-/* === FILAS DE VIDEOS === */
-.video-track {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: max-content; 
-}
+        /* Bloque blanco que atraviesa el texto */
+        .section-header::before {
+            content: "";
+            position: absolute;
+            top: 45%;
+            left: 0;
+            width: 100vw;
+            height: 30%;
+            background: #fff;
+            z-index: 1;
+            mix-blend-mode: difference;
+        }
 
-.video-row {
-    display: flex;
-    height: clamp(450px, 65vh, 680px); 
-    gap: 20px;
-}
+        /* === SCROLL HORIZONTAL DE VIDEOS === */
+        .grid-scroller {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0 0 20px 0; /* Borde a borde puro */
+            scrollbar-width: thin;
+            scrollbar-color: #555 transparent;
+        }
 
-/* === VIDEOS MANTENIENDO ASPECT RATIO === */
-.video {
-    background: #000;
-    height: 100%; 
-    position: relative;
-    overflow: hidden;
-    border: 0px solid #111;
-}
+        /* Barra de scroll */
+        .grid-scroller::-webkit-scrollbar {
+            height: 8px;
+        }
+        .grid-scroller::-webkit-scrollbar-track {
+            background: transparent;
+            margin: 0;
+        }
+        .grid-scroller::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 4px;
+        }
 
-.horizontal { aspect-ratio: 16 / 9; }
-.vertical { aspect-ratio: 9 / 16; }
+        /* Filas y Columnas de Videos */
+        .video-track {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: max-content;
+        }
 
-.video iframe {
-    position: absolute;
-    top: 0;
-    left:-2;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+        .video-row {
+            display: flex;
+            height: clamp(450px, 65vh, 680px); /* 80% aprox de la pantalla */
+            gap: 20px;
+        }
 
-/* === TEXTO DESCRIPTIVO === */
-.section-description {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(12px, 1.5vw, 15px);
-    line-height: 1.1;
-    color: #ccc;
-    margin: 20px 20px 0 40px; /* 🔥 Reducido de 40px a 20px en la parte superior */
-    max-width: 900px;
-    text-transform: uppercase;
-}
-.section-description strong {
-    color: #fff;
-    font-weight: 700;
-}
-/* === ADAPTACIÓN MÓVIL (Smartphones) === */
-@media (max-width: 768px) {
-    
-   /* === ADAPTACIÓN MÓVIL (Smartphones) === */
-@media (max-width: 768px) {
-    
-    /* Reducimos el padding lateral del Hero para ganar más espacio para el título */
-    .hero-content {
-        padding: 0 15px 30px 15px;
-    }
+        /* Proporciones de videos */
+        .video {
+            height: 100%;
+            background: #111;
+            position: relative;
+        }
+        .video.horizontal { aspect-ratio: 16 / 9; }
+        .video.vertical { aspect-ratio: 9 / 16; }
 
-    /* 1. BENYAKROW (9 letras): Usamos 11vw para que quepa exacto de lado a lado */
-    .hero-title {
-        font-size: clamp(30px, 11vw, 80px);
-        letter-spacing: -3px; /* Reducimos la asfixia para que se entienda al ser más chico */
-    }
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
-    /* 2. BRANDCONTENT y RAVECULTURE (Hasta 12 letras): Usamos 8.5vw para forzar que entren en 1 sola línea */
-    .section-title {
-        font-size: clamp(24px, 8.5vw, 50px); 
-        letter-spacing: -2px; 
-        padding: 0 15px; 
-        line-height: 0.9;
-    }
+        /* === TEXTOS DESCRIPTIVOS === */
+        .section-description {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(12px, 1.5vw, 15px);
+            line-height: 1.6;
+            color: #ccc;
+            margin: 20px 40px 0 40px;
+            max-width: 900px;
+            text-transform: uppercase;
+        }
 
-    /* 3. Reacomodamos el bloque atravesado a la nueva proporción del texto */
-    .section-header::before {
-        top: 40%;
-        width: 85vw; 
-        height: 50%;
-    }
+        /* === FOOTER / CONTACTO === */
+        .footer {
+            padding: 60px 40px 80px 40px;
+            background: #000;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    /* 4. Altura controlada de videos para móvil */
-    .video-row {
-        height: 250px; 
-        gap: 15px; 
-    }
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(30px, 6vw, 80px);
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
 
-    /* 5. Textos descriptivos */
-    .section-description {
-        margin: 30px 15px 0 15px;
-        font-size: 13px;
-    }
-}
-}  
-    /* === FOOTER / CONTACTO === */
-.footer {
-    padding: 60px 40px 80px 40px;
-    background: #000;
-    border-top: 1px solid #333; /* Una línea sutil para separar el final del landing */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-.footer-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: clamp(30px, 6vw, 80px);
-    text-transform: uppercase;
-    color: #fff;
-    margin: 0;
-    letter-spacing: -2px;
-    line-height: 1;
-}
+        .footer-link {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(14px, 1.5vw, 18px);
+            color: #ccc;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            width: max-content;
+        }
 
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        .footer-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
 
-.footer-link {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(14px, 1.5vw, 18px);
-    color: #ccc;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    width: max-content;
-}
-
-.footer-link:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-</style>
+        /* === ADAPTACIÓN MÓVIL (Smartphones) === */
+        @media (max-width: 768px) {
+            .hero-content { padding: 0 15px 30px 15px; }
+            .hero-title { font-size: clamp(30px, 11vw, 80px); letter-spacing: -3px; }
+            .section-title { font-size: clamp(24px, 8.5vw, 50px); letter-spacing: -2px; padding: 0 15px; line-height: 0.9; }
+            .section-header::before { top: 40%; width: 85vw; height: 50%; }
+            .video-row { height: 250px; gap: 15px; } 
+            .section-description { margin: 30px 15px 0 15px; font-size: 13px; }
+            .footer { padding: 40px 20px 60px 20px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="hero">
-    <iframe 
-        src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=ylhUxH-iGbM" 
-        allow="autoplay; encrypted-media" 
-        allowfullscreen>
-    </iframe>
-
+<header class="hero">
+    <video class="hero-video" autoplay loop muted playsinline src="tu-video.mp4"></video>
+    
     <div class="hero-content">
-        <div class="hero-title-box">
-            <h1 class="hero-title">BENYAKROW</h1>
-            <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
-        </div>
+        <h1 class="hero-title">BENYAKROW</h1>
+        <p class="hero-subtitle">FILMMAKER /// CREATIVE DIRECTOR</p>
     </div>
-</div>
+</header>
 
 <div class="marquee">
-    <span>STG - CHILE /// RAVE CULTURE /// BRANDCONTENT /// STG - CHILE /// RAVE CULTURE /// BRANDCONTENT ///</span>
+    <span>
+        STG - CHILE /// RAVE CULTURE /// BRANDCONTENT /// 
+        CLIENTES: <img src="ruta-logo-creamfields.png" alt="Creamfields" class="marquee-logo"> /// 
+        <img src="ruta-logo-360.png" alt="360" class="marquee-logo"> /// 
+        
+        STG - CHILE /// RAVE CULTURE /// BRANDCONTENT /// 
+        CLIENTES: <img src="ruta-logo-creamfields.png" alt="Creamfields" class="marquee-logo"> /// 
+        <img src="ruta-logo-360.png" alt="360" class="marquee-logo"> ///
+    </span>
 </div>
 
 <section class="section">
     <div class="section-header">
         <h2 class="section-title">RAVECULTURE</h2>
     </div>
-
+    
     <div class="grid-scroller">
-<div class="video-track">
-    <div class="video-row">
-        <div class="video horizontal">
-            <iframe src="https://www.youtube.com/embed/sxm0QOlixdI" allowfullscreen></iframe>
-        </div>
-        <div class="video vertical">
-            <iframe src="https://www.youtube.com/embed/sHyBrlnHK9I" allowfullscreen></iframe>
-        </div>
-        <div class="video horizontal">
-            <iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8" allowfullscreen></iframe>
-        </div>
-    </div>
+        <div class="video-track">
+            <div class="video-row">
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/sxm0QOlixdI" allowfullscreen></iframe>
+                </div>
+                <div class="video vertical">
+                    <iframe src="https://www.youtube.com/embed/sHyBrlnHK9I" allowfullscreen></iframe>
+                </div>
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8" allowfullscreen></iframe>
+                </div>
+            </div>
 
-    <div class="video-row">
-        <div class="video vertical">
-            <iframe src="https://www.youtube.com/embed/YuD6OQaPa8A" allowfullscreen></iframe>
+            <div class="video-row">
+                <div class="video vertical">
+                    <iframe src="https://www.youtube.com/embed/YuD6OQaPa8A" allowfullscreen></iframe>
+                </div>
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/iU0mgnyGALI" allowfullscreen></iframe>
+                </div>
+                <div class="video horizontal">
+                    <iframe src="https://www.youtube.com/embed/bhlOODsSCRU" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-        <div class="video horizontal">
-            <iframe src="https://www.youtube.com/embed/iU0mgnyGALI" allowfullscreen></iframe>
-        </div>
-        <div class="video horizontal">
-            <iframe src="https://www.youtube.com/embed/bhlOODsSCRU" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
     </div>
 
     <p class="section-description">
-        La música pasa de ser <strong>sonido</strong> y se vuelve parte del cuerpo.<br>
-        Te muestro la <strong>energía</strong> real de la pista: el público, los artistas y los <strong>momentos</strong> en su punto más alto.
+        Registro visual de la escena electrónica underground.<br>
+        <strong>Energía en crudo</strong>, luces y movimiento perpetuo.
     </p>
 </section>
-    
+
 <footer class="footer">
     <h2 class="footer-title">CONTACTO</h2>
     <div class="footer-links">
@@ -382,7 +352,5 @@ body {
     </div>
 </footer>
 
-</body>
-</html>
 </body>
 </html>
