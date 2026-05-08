@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* === HERO (Pantalla Principal) === */
+        /* === HERO (Header) === */
         .hero {
             position: relative;
             height: 55vh;
@@ -33,21 +33,34 @@
             justify-content: flex-end;
         }
 
+        /* Video de YouTube: Corregido para eliminar franjas negras en mobile */
         .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 150vw;
-            height: 150vh;
+            width: 100%;
+            height: 100%;
             transform: translate(-50%, -50%);
             z-index: 0;
             opacity: 0.8;
             pointer-events: none;
         }
 
+        /* Hack para asegurar que el video cubra todo el espacio sin letterbox */
+        @media (aspect-ratio: 16/9) {
+          .hero-video iframe { width: 100vw; height: 56.25vw; }
+        }
+        @media (max-aspect-ratio: 16/9) {
+          .hero-video iframe { width: 177.78vh; height: 100vh; }
+        }
+
         .hero-video iframe {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%; /* Super estirado para asegurar cobertura en cualquier móvil */
+            height: 300%;
+            transform: translate(-50%, -50%);
             border: none;
         }
 
@@ -125,7 +138,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* === SECCIONES Y CABECERAS === */
+        /* === SECCIONES === */
         .section {
             padding: 30px 0;
             width: 100%;
@@ -151,40 +164,38 @@
             z-index: 2;
         }
 
-        /* LA BARRA QUE CORTA EL TEXTO (AJUSTADA AL 85% LARGO Y SOBRESALIENDO ABAJO) */
         .section-header::before {
             content: "";
             position: absolute;
-            top: 50%; /* Empieza a la mitad de la letra */
+            top: 50%;
             left: 0;
-            width: 85%; /* Mide el 85% del largo del título */
-            height: 40%; /* Un 40% de alto para que sobresalga un 20% real hacia abajo */
+            width: 85%;
+            height: 40%;
             background: #fff; 
             z-index: 1;
         }
 
-        /* === GRID DE VIDEOS === */
-        /* === GRID DE VIDEOS SIN ESPACIOS === */
+        /* === GRID DE VIDEOS (Corrección de espacios laterales) === */
         .grid-scroller {
             width: 100%;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 0;
-            scrollbar-width: thin;
-            scrollbar-color: #555 transparent;
+            padding: 0; /* Eliminados espacios laterales */
+            scrollbar-width: none; /* Oculta scrollbar en Firefox */
         }
+        .grid-scroller::-webkit-scrollbar { display: none; } /* Oculta scrollbar en Chrome/Safari */
 
         .video-track {
             display: flex;
             flex-direction: column;
-            gap: 0; /* Sin espacio entre filas */
+            gap: 0;
             width: max-content;
         }
 
         .video-row {
             display: flex;
             height: clamp(450px, 65vh, 680px);
-            gap: 0; /* Sin espacio entre videos */
+            gap: 0;
         }
 
         .video {
@@ -203,23 +214,23 @@
             height: 100%;
             border: none;
         }
-        
 
+        /* === DESCRIPCIÓN === */
         .section-description {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(14px, 1.0vw, 17px);
-    line-height: 1.4;
-    color: #fff;
-    margin: 20px 15px 0 15px; 
-    max-width: 850px;
-    text-transform: uppercase;
-    font-weight: 400; /* Texto base normal */
-   }
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(14px, 1.0vw, 17px);
+            line-height: 1.4;
+            color: #fff;
+            margin: 20px 15px 0 15px; 
+            max-width: 850px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
 
-.section-description strong {
-    font-weight: 900; /* Máximo grosor para destacar */
-    font-family: 'Montserrat', sans-serif; /* Montserrat para que la diferencia sea total */
-}
+        .section-description strong {
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+        }
 
         /* === FOOTER === */
         .footer {
@@ -242,12 +253,6 @@
             line-height: 1;
         }
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
         .footer-link {
             font-family: 'Space Mono', monospace;
             font-size: clamp(14px, 1.5vw, 18px);
@@ -257,14 +262,17 @@
             width: max-content;
         }
 
-        /* === ADAPTACIÓN MÓVIL === */
+        /* === ADAPTACIÓN MÓVIL (Correcciones Finales) === */
         @media (max-width: 768px) {
             .hero-content { padding: 0 15px 30px 15px; }
             .hero-title { font-size: clamp(35px, 11vw, 80px); }
             .section-title { font-size: clamp(30px, 8.5vw, 50px); padding-left: 15px; }
             .section-header::before { top: 50%; width: 85%; height: 40%; }
-            .video-row { height: 250px; gap: 15px; }
-            .marquee-logo { height: 25px; }
+            .video-row { height: 250px; }
+            .hero-video iframe {
+                width: 400%; /* Aumento de cobertura para mobile vertical */
+                height: 100%;
+            }
         }
     </style>
 </head>
@@ -299,21 +307,21 @@
     <div class="grid-scroller">
         <div class="video-track">
             <div class="video-row">
-                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/sxm0QOlixdI" allowfullscreen></iframe></div>
-                <div class="video vertical"><iframe src="https://www.youtube.com/embed/sHyBrlnHK9I" allowfullscreen></iframe></div>
-                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8" allowfullscreen></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/sxm0QOlixdI"></iframe></div>
+                <div class="video vertical"><iframe src="https://www.youtube.com/embed/sHyBrlnHK9I"></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8"></iframe></div>
             </div>
             <div class="video-row">
-                <div class="video vertical"><iframe src="https://www.youtube.com/embed/YuD6OQaPa8A" allowfullscreen></iframe></div>
-                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/iU0mgnyGALI" allowfullscreen></iframe></div>
-                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/bhlOODsSCRU" allowfullscreen></iframe></div>
+                <div class="video vertical"><iframe src="https://www.youtube.com/embed/YuD6OQaPa8A"></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/iU0mgnyGALI"></iframe></div>
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/bhlOODsSCRU"></iframe></div>
             </div>
         </div>
     </div>
     
     <p class="section-description">
-    Registro <strong>LA CULTURA</strong>. desde el centro de la pista 
-    capturando momentos de <strong>ENERGÍA PURA</strong>. Registro <strong>REAL</strong> para que todos <strong>SIENTAN</strong> que de verdad están ahí.
+        Registro <strong>LA CULTURA</strong>.<br> desde el centro de la pista 
+        capturando momentos de <strong>ENERGÍA PURA</strong>. Registro <strong>REAL</strong> para que todos <strong>SIENTAN</strong> que de verdad están ahí.
     </p>
 </section>
 
