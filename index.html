@@ -164,11 +164,12 @@
         }
 
         /* === GRID DE VIDEOS === */
+        /* === GRID DE VIDEOS SIN ESPACIOS === */
         .grid-scroller {
             width: 100%;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 0 0 20px 0;
+            padding: 0;
             scrollbar-width: thin;
             scrollbar-color: #555 transparent;
         }
@@ -176,14 +177,14 @@
         .video-track {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 0; /* Sin espacio entre filas */
             width: max-content;
         }
 
         .video-row {
             display: flex;
             height: clamp(450px, 65vh, 680px);
-            gap: 20px;
+            gap: 0; /* Sin espacio entre videos */
         }
 
         .video {
@@ -202,6 +203,7 @@
             height: 100%;
             border: none;
         }
+        
 
         .section-description {
     font-family: 'Space Mono', monospace;
