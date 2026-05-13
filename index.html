@@ -33,7 +33,6 @@
             justify-content: flex-end;
         }
 
-        /* Video de YouTube: Corregido para eliminar franjas negras en mobile */
         .hero-video {
             position: absolute;
             top: 50%;
@@ -46,19 +45,12 @@
             pointer-events: none;
         }
 
-        /* Hack para asegurar que el video cubra todo el espacio sin letterbox */
-        @media (aspect-ratio: 16/9) {
-          .hero-video iframe { width: 100vw; height: 56.25vw; }
-        }
-        @media (max-aspect-ratio: 16/9) {
-          .hero-video iframe { width: 177.78vh; height: 100vh; }
-        }
-
+        /* Fix para eliminar franjas negras en cualquier pantalla */
         .hero-video iframe {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 300%; /* Super estirado para asegurar cobertura en cualquier móvil */
+            width: 300%; 
             height: 300%;
             transform: translate(-50%, -50%);
             border: none;
@@ -175,15 +167,15 @@
             z-index: 1;
         }
 
-        /* === GRID DE VIDEOS (Corrección de espacios laterales) === */
+        /* === GRID DE VIDEOS (Sin espacios laterales) === */
         .grid-scroller {
             width: 100%;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 0; /* Eliminados espacios laterales */
-            scrollbar-width: none; /* Oculta scrollbar en Firefox */
+            padding: 0; 
+            scrollbar-width: none; 
         }
-        .grid-scroller::-webkit-scrollbar { display: none; } /* Oculta scrollbar en Chrome/Safari */
+        .grid-scroller::-webkit-scrollbar { display: none; }
 
         .video-track {
             display: flex;
@@ -262,7 +254,7 @@
             width: max-content;
         }
 
-        /* === ADAPTACIÓN MÓVIL (Correcciones Finales) === */
+        /* === ADAPTACIÓN MÓVIL === */
         @media (max-width: 768px) {
             .hero-content { padding: 0 15px 30px 15px; }
             .hero-title { font-size: clamp(35px, 11vw, 80px); }
@@ -270,7 +262,7 @@
             .section-header::before { top: 50%; width: 85%; height: 40%; }
             .video-row { height: 250px; }
             .hero-video iframe {
-                width: 400%; /* Aumento de cobertura para mobile vertical */
+                width: 400%; 
                 height: 100%;
             }
         }
@@ -307,6 +299,7 @@
     <div class="grid-scroller">
         <div class="video-track">
             <div class="video-row">
+                <div class="video horizontal"><iframe src="https://www.youtube.com/embed/5ARzn39747Q"></iframe></div>
                 <div class="video horizontal"><iframe src="https://www.youtube.com/embed/sxm0QOlixdI"></iframe></div>
                 <div class="video vertical"><iframe src="https://www.youtube.com/embed/sHyBrlnHK9I"></iframe></div>
                 <div class="video horizontal"><iframe src="https://www.youtube.com/embed/9oDBvLQ4mV8"></iframe></div>
