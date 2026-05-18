@@ -75,25 +75,30 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            mix-blend-mode: difference;
+            mix-blend-mode: difference; /* Mantiene el efecto negativo sobre el video */
         }
 
+        /* === AJUSTES DEL LOGO EN EL HERO === */
         .hero-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: clamp(40px, 11vw, 130px);
-            line-height: 0.85;
             margin: 0;
-            letter-spacing: -5px;
-            text-transform: uppercase;
-            color: #fff;
+            line-height: 0; /* Elimina espacio extra debajo de la imagen */
+        }
+
+        .hero-title img {
+            /* Tamaño responsive para el logo */
+            height: clamp(60px, 15vw, 180px); 
+            width: auto; /* Mantiene proporción */
+            display: block;
+            /* Asegura que el logo sea blanco por defecto para que mix-blend-mode funcione */
+            filter: brightness(0) invert(1); 
         }
 
         .hero-subtitle {
             font-size: clamp(14px, 2vw, 20px);
-            margin-top: 10px;
+            margin-top: 15px; /* Espacio con el logo */
             letter-spacing: 2px;
             color: #fff;
+            text-transform: uppercase;
         }
 
         /* === HUINCHA / MARQUEE === */
@@ -167,7 +172,7 @@
             z-index: 1;
         }
 
-        /* === GRID DE VIDEOS (Sin espacios laterales) === */
+        /* === GRID DE VIDEOS === */
         .grid-scroller {
             width: 100%;
             overflow-x: auto;
@@ -257,7 +262,6 @@
         /* === ADAPTACIÓN MÓVIL === */
         @media (max-width: 768px) {
             .hero-content { padding: 0 15px 30px 15px; }
-            .hero-title { font-size: clamp(35px, 11vw, 80px); }
             .section-title { font-size: clamp(30px, 8.5vw, 50px); padding-left: 15px; }
             .section-header::before { top: 50%; width: 85%; height: 40%; }
             .video-row { height: 250px; }
@@ -265,6 +269,7 @@
                 width: 400%; 
                 height: 100%;
             }
+            .hero-subtitle { margin-top: 10px; }
         }
     </style>
 </head>
@@ -275,7 +280,9 @@
         <iframe src="https://www.youtube.com/embed/ylhUxH-iGbM?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&playsinline=1&playlist=ylhUxH-iGbM" allow="autoplay; encrypted-media"></iframe>
     </div>
     <div class="hero-content">
-        <h1 class="hero-title">BENYAKROW</h1>
+        <h1 class="hero-title">
+            <img src="bekrow 1.png" alt="BENYAKROW LOGO">
+        </h1>
         <p class="hero-subtitle">FILMMAKER - CONTENT CREATOR - CREADOR UGC</p>
     </div>
 </header>
